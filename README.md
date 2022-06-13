@@ -73,5 +73,9 @@ cd /path/to/root/of/project
 npx react-native start
 
 # build and start your application
+# After a fresh install of the application, I had to initially cold boot the android emulator, you may or may not need
+# to boot the application in this manner. https://github.com/facebook/react-native/issues/24725
 npx react-native run-android
 ```
+
+

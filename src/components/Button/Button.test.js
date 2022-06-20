@@ -6,7 +6,7 @@ import {render, fireEvent} from '@testing-library/react-native';
 
 describe('Button', () => {
   ['primary', 'secondary', 'text'].forEach(style => {
-    it(`renders primary ${style}`, async () => {
+    it(`renders button - ${style}`, async () => {
       const {getByText} = render(<Button style={style} text={'submit'} />);
       await getByText('submit');
     });

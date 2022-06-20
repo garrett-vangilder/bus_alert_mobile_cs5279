@@ -26,6 +26,9 @@ export default {
   },
   white: {
     one: '#ecf0f1',
+    two: '#D3D7D8',
+    three: '#B9BDBE',
+    four: '#A0A4A5',
   },
   yellow: {
     one: '#f1c40f',

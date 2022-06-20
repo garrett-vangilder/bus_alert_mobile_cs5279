@@ -13,6 +13,7 @@ const Home = props => {
   useEffect(() => {
     if (firstName) console.log('First name changed', firstName);
   }, [firstName]);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Components</Text>

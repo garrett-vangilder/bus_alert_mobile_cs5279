@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableWithoutFeedback, View} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import styles from './styles';
 
 export default ({disabled, onPress, style, text}) => {
@@ -21,13 +21,13 @@ export default ({disabled, onPress, style, text}) => {
   }
 
   return (
-    <TouchableWithoutFeedback
+    <TouchableOpacity
       accessibilityLanguage={text}
       disabled={disabled}
       onPress={() => onPress && onPress()}>
       <View style={buttonStyle}>
         <Text style={buttonText}>{text}</Text>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   );
 };

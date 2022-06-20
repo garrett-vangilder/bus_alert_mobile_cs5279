@@ -22,7 +22,7 @@ export default EStylesheet.create({
   primaryButtonText: {
     fontSize: styles.fontSize.lg,
     color: styles.colors.white.one,
-    fontWeight: styles.fontWeight.extrabold,
+    fontWeight: styles.fontWeight.bold,
   },
   secondaryButton: {
     ...baseButton,
@@ -33,7 +33,7 @@ export default EStylesheet.create({
   secondaryButtonText: {
     fontSize: styles.fontSize.lg,
     color: styles.colors.black.five,
-    fontWeight: styles.fontWeight.extrabold,
+    fontWeight: styles.fontWeight.bold,
   },
   textButton: {
     ...baseButton,
@@ -41,6 +41,6 @@ export default EStylesheet.create({
   textButtonText: {
     fontSize: styles.fontSize.lg,
     color: styles.colors.black.five,
-    fontWeight: styles.fontWeight.extrabold,
+    fontWeight: styles.fontWeight.bold,
   },
 });

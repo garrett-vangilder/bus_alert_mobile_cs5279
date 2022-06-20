@@ -2,7 +2,7 @@ import React from 'react';
 
 import {SafeAreaView} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {Home} from './views';
+import {Home} from './screens';
 import {styles} from './constants';
 
 const App = () => (

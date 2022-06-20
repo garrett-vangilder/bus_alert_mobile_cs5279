@@ -11,7 +11,7 @@ const Home = props => {
   const [uneditableText, setUneditableText] = useState('UNEDITABLE');
 
   useEffect(() => {
-    console.log('First name changed', firstName);
+    if (firstName) console.log('First name changed', firstName);
   }, [firstName]);
   return (
     <View style={styles.container}>

@@ -3,7 +3,14 @@ import {Text, TextInput, View} from 'react-native';
 
 import styles from './styles';
 
-export default ({defaultValue, editable, value, onChange, label}) => {
+export default ({
+  defaultValue,
+  editable,
+  placeholder,
+  value,
+  onChange,
+  label,
+}) => {
   let containerStyles, labelStyles, inputStyles;
   if (!editable) {
     containerStyles = {...styles.container, ...styles.uneditableContainer};
@@ -27,6 +34,7 @@ export default ({defaultValue, editable, value, onChange, label}) => {
         editable={editable}
         onChangeText={value => onChange(value)}
         value={value}
+        placeholder={placeholder}
         style={inputStyles}
       />
     </View>

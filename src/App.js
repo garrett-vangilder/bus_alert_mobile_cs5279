@@ -1,15 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-import {SafeAreaView} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {Home} from './screens';
-import {styles} from './constants';
+import {RootNavigator} from './navigation';
+import {ShortCodeContext} from './context';
 
-const App = () => (
-  <NavigationContainer>
-    <SafeAreaView style={{backgroundColor: styles.colors.white.one}}>
-      <Home />
-    </SafeAreaView>
-  </NavigationContainer>
-);
+const App = () => {
+  const [shortCode, setShortCode] = useState('');
+
+  return (
+    <ShortCodeContext.Provider value={{shortCode, setShortCode}}>
+      <RootNavigator />
+    </ShortCodeContext.Provider>
+  );
+};
 export default App;

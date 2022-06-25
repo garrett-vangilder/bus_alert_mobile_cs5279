@@ -1,3 +1,5 @@
 import Home from './Home/index';
+import {Welcome} from './Welcome';
+import {CurrentRoute} from './CurrentRoute';
 
-export {Home};
+export {CurrentRoute, Home, Welcome};

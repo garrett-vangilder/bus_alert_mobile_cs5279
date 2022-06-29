@@ -6,15 +6,25 @@ export default EStylesheet.create({
   container: {
     height: styles.height.full,
     backgroundColor: styles.colors.yellow.one,
-    borderColor: 'green',
-    borderWidth: 1,
   },
   pageContainer: {
     height: styles.height.full,
-    borderColor: 'red',
-    borderWidth: 1,
+  },
+  titleContainer: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: styles.padding.p24,
+  },
+  title: {
+    fontWeight: styles.fontWeight.medium,
+    fontSize: styles.fontSize['4xl'],
+    textAlign: 'center',
   },
   flexOne: {
     flex: 1,
+  },
+  flexTwo: {
+    flex: 2,
   },
 });

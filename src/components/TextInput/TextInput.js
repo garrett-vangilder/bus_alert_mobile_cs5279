@@ -28,7 +28,7 @@ export default ({
         autoCapitalize={'none'}
         autoComplete={'off'}
         autoCorrect={false}
-        autoFocus
+        autoFocus={false}
         clearButtonMode={'while-editing'}
         defaultValue={defaultValue}
         editable={editable}

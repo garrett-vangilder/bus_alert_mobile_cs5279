@@ -43,4 +43,15 @@ export default EStylesheet.create({
     color: styles.colors.black.five,
     fontWeight: styles.fontWeight.bold,
   },
+  disabledButton: {
+    ...baseButton,
+    backgroundColor: styles.colors.white.three,
+    borderColor: styles.colors.black.five,
+    borderWidth: 2,
+  },
+  disabledButtonText: {
+    fontSize: styles.fontSize.lg,
+    color: styles.colors.black.five,
+    fontWeight: styles.fontWeight.bold,
+  },
 });

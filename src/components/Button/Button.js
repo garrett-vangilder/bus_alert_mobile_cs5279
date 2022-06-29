@@ -19,6 +19,10 @@ export default ({disabled, onPress, style, text}) => {
       buttonStyle = styles.primaryButton;
       buttonText = styles.primaryButtonText;
   }
+  if (disabled) {
+    buttonStyle = styles.disabledButton;
+    buttonText = styles.disabledButtonText;
+  }
 
   return (
     <TouchableOpacity

@@ -36,4 +36,5 @@ export default {
   h110: '26rem',
   hFull: height,
   full: '100%',
+  athird: '33.3333%',
 };

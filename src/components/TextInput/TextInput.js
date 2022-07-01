@@ -10,6 +10,7 @@ export default ({
   value,
   onChange,
   label,
+  testID,
 }) => {
   let containerStyles, labelStyles, inputStyles;
   if (!editable) {
@@ -25,10 +26,11 @@ export default ({
     <View style={containerStyles}>
       {label && <Text style={labelStyles}>{label}</Text>}
       <TextInput
+        testID={testID}
         autoCapitalize={'none'}
         autoComplete={'off'}
         autoCorrect={false}
-        autoFocus
+        autoFocus={false}
         clearButtonMode={'while-editing'}
         defaultValue={defaultValue}
         editable={editable}

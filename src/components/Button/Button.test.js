@@ -15,10 +15,29 @@ describe('Button', () => {
   it('performs onPress', async () => {
     const onPressMock = jest.fn();
     const {getByText} = render(
-      <Button style={'primary'} text={'submit'} onPress={onPressMock()} />,
+      <Button
+        style={'primary'}
+        text={'submit'}
+        onPress={() => onPressMock()}
+      />,
     );
 
     fireEvent.press(await getByText('submit'));
     expect(onPressMock).toHaveBeenCalled();
+  });
+
+  it('does not perform onPress when button is disabled', async () => {
+    const onPressMock = jest.fn();
+    const {getByText} = render(
+      <Button
+        disabled={true}
+        style={'primary'}
+        text={'submit'}
+        onPress={() => onPressMock()}
+      />,
+    );
+
+    fireEvent.press(await getByText('submit'));
+    expect(onPressMock).not.toHaveBeenCalled();
   });
 });

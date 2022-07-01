@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import styles from './styles';
 
-export default ({disabled, onPress, style, text}) => {
+export default ({disabled, onPress, style, text, testID}) => {
   let buttonStyle;
   let buttonText;
   switch (style) {
@@ -26,6 +26,7 @@ export default ({disabled, onPress, style, text}) => {
 
   return (
     <TouchableOpacity
+      testID={testID}
       accessibilityLanguage={text}
       disabled={disabled}
       onPress={() => onPress && onPress()}>

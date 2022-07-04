@@ -1,7 +1,7 @@
 import 'react-native';
 import '@testing-library/jest-dom';
 import React from 'react';
-import {screen, fireEvent} from '@testing-library/react-native';
+import {screen, fireEvent, waitFor} from '@testing-library/react-native';
 
 import Welcome from './Welcome';
 import {renderWithProviders} from '../../utils/testUtils';
@@ -19,6 +19,15 @@ jest.mock('@react-navigation/elements', () => {
     useHeaderHeight: jest.fn(),
   };
 });
+jest.mock('react-native/Libraries/EventEmitter/NativeEventEmitter');
+jest.mock('../../utils/locationUtils', () => {
+  const actual = jest.requireActual('../../utils/locationUtils');
+  return {
+    ...actual,
+    hasLocationPermission: jest.fn(() => Promise.resolve(true)),
+    hasPermissionIOS: jest.fn(() => Promise.resolve(true)),
+  };
+});
 
 function renderWelcome(props = defaultProps, providerProps = {}) {
   return renderWithProviders(<Welcome {...props} />, {
@@ -32,19 +41,25 @@ describe('Welcome', () => {
   });
 
   test('renders a welcome message', async () => {
-    const expectedText = await screen.getByText('Welcome to Bus Alert');
+    const expectedText = await waitFor(() =>
+      screen.getByText('Welcome to Bus Alert'),
+    );
 
     expect(expectedText).toBeTruthy();
   });
 
   test('renders a route code text input', async () => {
-    const textInput = await screen.getByTestId('short-code-text-input');
+    const textInput = await waitFor(() =>
+      screen.getByTestId('short-code-text-input'),
+    );
 
     expect(textInput).toBeTruthy();
   });
 
   test('renders a toCurrentRoute button', async () => {
-    const button = await screen.getByTestId('welcome-to-current-route-button');
+    const button = await waitFor(() =>
+      screen.getByTestId('welcome-to-current-route-button'),
+    );
 
     expect(button).toBeTruthy();
   });
@@ -58,7 +73,9 @@ describe('Welcome', () => {
         navigate: mockNavigate,
       },
     });
-    const button = await screen.getByTestId('welcome-to-current-route-button');
+    const button = await waitFor(() =>
+      screen.getByTestId('welcome-to-current-route-button'),
+    );
 
     fireEvent(button, 'click');
 
@@ -82,7 +99,9 @@ describe('Welcome', () => {
         },
       },
     );
-    const button = await screen.getByTestId('welcome-to-current-route-button');
+    const button = await waitFor(() =>
+      screen.getByTestId('welcome-to-current-route-button'),
+    );
     fireEvent(button, 'click');
     expect(mockNavigate).toBeCalled();
   });
@@ -101,7 +120,9 @@ describe('Welcome', () => {
         },
       },
     );
-    const textInput = await screen.getByTestId('short-code-text-input');
+    const textInput = await waitFor(() =>
+      screen.getByTestId('short-code-text-input'),
+    );
     fireEvent.changeText(textInput, 'FAKE_SHORT_CODE');
 
     expect(mockSetShortCode).toBeCalledWith('FAKE_SHORT_CODE');

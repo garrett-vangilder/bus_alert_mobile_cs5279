@@ -1,13 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {useHeaderHeight} from '@react-navigation/elements';
 import {KeyboardAvoidingView, Text, SafeAreaView, View} from 'react-native';
 
 import {ShortCodeContext} from '../../context';
 import {Button, TextInput} from '../../components';
 import {styles} from './index';
+import {hasLocationPermission} from '../../utils/locationUtils';
 
 export default ({navigation}) => {
+  const [hasLocationPermissions, setHasLocationPermissions] = useState(false);
   const headerHeight = useHeaderHeight();
+
+  useEffect(() => {
+    async function fetchHasLocationPermissions() {
+      const hasPerms = await hasLocationPermission();
+      setHasLocationPermissions(hasPerms);
+    }
+    fetchHasLocationPermissions();
+  }, [hasLocationPermissions, setHasLocationPermissions]);
 
   return (
     <View style={styles.container}>
@@ -15,7 +25,6 @@ export default ({navigation}) => {
         <ShortCodeContext.Consumer>
           {({shortCode, setShortCode}) => (
             <View style={styles.pageContainer}>
-              <Text>Short code: {shortCode}</Text>
               <View style={styles.titleContainer}>
                 <Text style={styles.title}>Welcome to Bus Alert</Text>
               </View>
@@ -35,9 +44,9 @@ export default ({navigation}) => {
                 style={styles.flexOne}>
                 <Button
                   testID={'welcome-to-current-route-button'}
-                  disabled={!shortCode}
+                  disabled={!shortCode || !hasLocationPermissions}
                   onPress={() => navigation.navigate('CurrentRoute')}
-                  text={'To Current Route'}
+                  text={'Start Driving'}
                 />
               </KeyboardAvoidingView>
             </View>

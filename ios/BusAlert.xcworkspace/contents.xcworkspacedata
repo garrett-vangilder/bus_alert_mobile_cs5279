@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:installSwift.swift">
+   </FileRef>
+   <FileRef
       location = "group:BusAlert.xcodeproj">
    </FileRef>
    <FileRef

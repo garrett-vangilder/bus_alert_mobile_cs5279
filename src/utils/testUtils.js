@@ -1,15 +1,16 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
 
-import {ShortCodeContext} from '../context';
+import {LocationContext, ShortCodeContext} from '../context';
 
 const withAllProviders = options => {
-  const providers = ({children}) => (
-    <ShortCodeContext.Provider value={{...options.shortCode}}>
-      {children}
-    </ShortCodeContext.Provider>
+  return ({children}) => (
+    <LocationContext.Provider value={{...options.location}}>
+      <ShortCodeContext.Provider value={{...options.shortCode}}>
+        {children}
+      </ShortCodeContext.Provider>
+    </LocationContext.Provider>
   );
-  return providers;
 };
 
 export const renderWithProviders = (ui, options) => {

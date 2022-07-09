@@ -31,20 +31,28 @@ export default ({navigation}) => {
           {({shortCode, setShortCode}) => (
             <View style={styles.pageContainer}>
               <View style={styles.routeHelper}>
-                <Text>Current Route: {shortCode}</Text>
-                <Text>Current Ping Count: {pingCount}</Text>
+                <Text testID={'current-route-id'}>
+                  Current Route: {shortCode}
+                </Text>
+                <Text testID={'current-route-pingCount'}>
+                  Current Ping Count: {pingCount}
+                </Text>
                 <LocationContext.Consumer>
                   {({location}) => (
                     <View>
                       {location &&
                       location.coords &&
                       location.coords.latitude ? (
-                        <Text>Latitude: {location.coords.latitude}</Text>
+                        <Text testID={'current-route-lat'}>
+                          Latitude: {location.coords.latitude}
+                        </Text>
                       ) : null}
                       {location &&
                       location.coords &&
                       location.coords.longitude ? (
-                        <Text>Longitude: {location.coords.longitude}</Text>
+                        <Text testID={'current-route-long'}>
+                          Longitude: {location.coords.longitude}
+                        </Text>
                       ) : null}
                     </View>
                   )}
@@ -52,7 +60,9 @@ export default ({navigation}) => {
               </View>
               <View>
                 <Button
+                  testID={'driving-stop'}
                   onPress={() => {
+                    setLocation(null);
                     setShortCode('');
                     navigation.goBack();
                   }}

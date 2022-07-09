@@ -5,6 +5,7 @@ import {screen, fireEvent, waitFor} from '@testing-library/react-native';
 
 import Welcome from './Welcome';
 import {renderWithProviders} from '../../utils/testUtils';
+import {hasLocationPermission} from '../../utils/locationUtils';
 
 const defaultProps = {
   navigation: {
@@ -56,9 +57,9 @@ describe('Welcome', () => {
     expect(textInput).toBeTruthy();
   });
 
-  test('renders a toCurrentRoute button', async () => {
+  test('renders a driving button', async () => {
     const button = await waitFor(() =>
-      screen.getByTestId('welcome-to-current-route-button'),
+      screen.getByTestId('start-driving-button'),
     );
 
     expect(button).toBeTruthy();
@@ -74,7 +75,7 @@ describe('Welcome', () => {
       },
     });
     const button = await waitFor(() =>
-      screen.getByTestId('welcome-to-current-route-button'),
+      screen.getByTestId('start-driving-button'),
     );
 
     fireEvent(button, 'click');
@@ -100,7 +101,7 @@ describe('Welcome', () => {
       },
     );
     const button = await waitFor(() =>
-      screen.getByTestId('welcome-to-current-route-button'),
+      screen.getByTestId('start-driving-button'),
     );
     fireEvent(button, 'click');
     expect(mockNavigate).toBeCalled();
@@ -126,5 +127,11 @@ describe('Welcome', () => {
     fireEvent.changeText(textInput, 'FAKE_SHORT_CODE');
 
     expect(mockSetShortCode).toBeCalledWith('FAKE_SHORT_CODE');
+  });
+
+  test('checks location permissions called on render', async () => {
+    await waitFor(() => screen.getByTestId('short-code-text-input'));
+
+    expect(hasLocationPermission).toBeCalled();
   });
 });

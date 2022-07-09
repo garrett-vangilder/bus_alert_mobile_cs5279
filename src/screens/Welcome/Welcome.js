@@ -43,9 +43,9 @@ export default ({navigation}) => {
                 behavior={'padding'}
                 style={styles.flexOne}>
                 <Button
-                  testID={'welcome-to-current-route-button'}
+                  testID={'start-driving-button'}
                   disabled={!shortCode || !hasLocationPermissions}
-                  onPress={() => navigation.navigate('CurrentRoute')}
+                  onPress={() => navigation.navigate('Driving')}
                   text={'Start Driving'}
                 />
               </KeyboardAvoidingView>

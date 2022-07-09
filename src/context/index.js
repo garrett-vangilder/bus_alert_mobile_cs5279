@@ -1,3 +1,4 @@
+import LocationContext from './LocationContext';
 import ShortCodeContext from './ShortCodeContext';
 
-export {ShortCodeContext};
+export {LocationContext, ShortCodeContext};

@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import Config from 'react-native-config';
 import {
   Alert,
   Platform,
@@ -108,4 +110,16 @@ export const getLocation = async setLocation => {
       showLocationDialog: true,
     },
   );
+};
+
+function createAxiosInstance() {
+  return axios.create({
+    baseURL: Config.URL,
+  });
+}
+
+const api = createAxiosInstance();
+
+export const setLocation = async ({routeId, latitude, longitude}) => {
+  return await api.post('gps');
 };

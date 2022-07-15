@@ -30,6 +30,8 @@ local.properties
 *.iml
 *.hprof
 
+android/keystore.properties
+
 # node.js
 #
 node_modules/

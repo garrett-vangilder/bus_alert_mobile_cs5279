@@ -1,5 +1,5 @@
-import React, {useEffect, useState, useContext} from 'react';
-import {Text, SafeAreaView, View} from 'react-native';
+import React, {useEffect, useState, useContext, useCallback} from 'react';
+import {Text, SafeAreaView, View, FlatList} from 'react-native';
 import {ShortCodeContext, LocationContext} from '../../context';
 import {
   getLocation,
@@ -13,17 +13,24 @@ export default ({navigation}) => {
   const {location, setLocation} = useContext(LocationContext);
   const {shortCode, setShortCode} = useContext(ShortCodeContext);
   const [pingCount, setPingCount] = useState(0);
+  const [responseLog, setResponseLog] = useState([]);
 
   useEffect(() => {
     let isMounted = true;
 
     const intervalId = setInterval(async () => {
       await getLocation(setLocation);
-      // await updateLocation({
-      //   routeId: shortCode,
-      //   latitude: location.coords.latitude,
-      //   longitude: location.coords.longitude,
-      // });
+      let resp;
+      try {
+        resp = await updateLocation({
+          routeId: shortCode,
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
+        });
+        setResponseLog([...responseLog, JSON.stringify(resp)]);
+      } catch (err) {
+        setResponseLog([...responseLog, JSON.stringify(err.response.data)]);
+      }
       setPingCount(pingCount + 1);
     }, 1000);
 
@@ -37,7 +44,7 @@ export default ({navigation}) => {
     <View style={styles.container}>
       <SafeAreaView>
         <View style={styles.pageContainer}>
-          <View style={styles.routeHelper}>
+          <View style={styles.routeData}>
             <Text style={styles.text} testID={'current-route-id'}>
               Current Route: {shortCode}
             </Text>
@@ -56,6 +63,18 @@ export default ({navigation}) => {
                 </Text>
               ) : null}
             </View>
+          </View>
+          <View style={styles.routeLog}>
+            <FlatList
+              data={[...responseLog].reverse()}
+              renderItem={({item}) => {
+                return (
+                  <View style={styles.routeItem}>
+                    <Text>{JSON.stringify(item)}</Text>
+                  </View>
+                );
+              }}
+            />
           </View>
           <View>
             <Button

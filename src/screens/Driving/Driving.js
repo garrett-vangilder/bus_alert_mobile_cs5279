@@ -38,18 +38,20 @@ export default ({navigation}) => {
       <SafeAreaView>
         <View style={styles.pageContainer}>
           <View style={styles.routeHelper}>
-            <Text testID={'current-route-id'}>Current Route: {shortCode}</Text>
-            <Text testID={'current-route-pingCount'}>
+            <Text style={styles.text} testID={'current-route-id'}>
+              Current Route: {shortCode}
+            </Text>
+            <Text style={styles.text} testID={'current-route-pingCount'}>
               Current Ping Count: {pingCount}
             </Text>
             <View>
               {location && location.coords && location.coords.latitude ? (
-                <Text testID={'current-route-lat'}>
+                <Text style={styles.text} testID={'current-route-lat'}>
                   Latitude: {location.coords.latitude}
                 </Text>
               ) : null}
               {location && location.coords && location.coords.longitude ? (
-                <Text testID={'current-route-long'}>
+                <Text style={styles.text} testID={'current-route-long'}>
                   Longitude: {location.coords.longitude}
                 </Text>
               ) : null}

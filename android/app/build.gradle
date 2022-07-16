@@ -121,9 +121,9 @@ def jscFlavor = 'org.webkit:android-jsc:+'
  */
 def enableHermes = project.ext.react.get("enableHermes", false);
 
-def keystorePropertiesFile = rootProject.file("keystore.properties");
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+// def keystorePropertiesFile = rootProject.file("keystore.properties");
+// def keystoreProperties = new Properties()
+// keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 /**
  * Architectures to build native code for.
@@ -233,12 +233,12 @@ android {
             keyPassword 'android'
         }
 
-        release {
-            storeFile file(keystoreProperties['BUSALERT_UPLOAD_STORE_FILE'])
-            storePassword keystoreProperties['BUSALERT_UPLOAD_STORE_PASSWORD']
-            keyAlias keystoreProperties['BUSALERT_UPLOAD_KEY_ALIAS']
-            keyPassword keystoreProperties['BUSALERT_UPLOAD_KEY_PASSWORD']
-        }
+//         release {
+//             storeFile file(keystoreProperties['BUSALERT_UPLOAD_STORE_FILE'])
+//             storePassword keystoreProperties['BUSALERT_UPLOAD_STORE_PASSWORD']
+//             keyAlias keystoreProperties['BUSALERT_UPLOAD_KEY_ALIAS']
+//             keyPassword keystoreProperties['BUSALERT_UPLOAD_KEY_PASSWORD']
+//         }
     }
     buildTypes {
         debug {
@@ -247,7 +247,7 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.release
+//             signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }

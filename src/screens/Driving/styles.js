@@ -16,4 +16,7 @@ export default EStylesheet.create({
     alignItems: 'center',
     paddingHorizontal: styles.padding.p24,
   },
+  text: {
+    color: styles.colors.black.five,
+  },
 });

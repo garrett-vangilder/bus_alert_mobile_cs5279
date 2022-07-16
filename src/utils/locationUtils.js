@@ -113,12 +113,8 @@ export const getLocation = async setLocation => {
 };
 
 function createAxiosInstance() {
-  console.log({
-    Config,
-  });
   return axios.create({
-    // baseURL: Config.URL,
-    baseURL: 'https://busalert.herokuapp.com/api/1.0/',
+    baseURL: Config.URL,
   });
 }
 

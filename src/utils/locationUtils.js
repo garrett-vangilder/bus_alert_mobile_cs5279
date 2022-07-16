@@ -121,6 +121,9 @@ function createAxiosInstance() {
 const api = createAxiosInstance();
 
 export const setLocation = async ({routeId, latitude, longitude}) => {
-  console.log(Config.URL);
-  return await api.post('gps');
+  return api.post('gps', {
+    routeId,
+    latitude,
+    longitude,
+  });
 };

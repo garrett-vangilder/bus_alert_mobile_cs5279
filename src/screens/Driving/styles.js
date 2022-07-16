@@ -10,11 +10,21 @@ export default EStylesheet.create({
   pageContainer: {
     height: styles.height.full,
   },
-  routeHelper: {
+  routeData: {
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: styles.padding.p24,
+  },
+  routeLog: {
+    flex: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: styles.colors.white.two,
+  },
+  routeItem: {
+    padding: styles.padding.p2,
+    marginHorizontal: styles.margin.m1,
   },
   text: {
     color: styles.colors.black.five,

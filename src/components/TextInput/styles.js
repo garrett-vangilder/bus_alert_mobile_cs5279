@@ -19,6 +19,7 @@ export default EStylesheet.create({
     fontSize: styles.fontSize.xs,
     color: styles.colors.black.five,
     textTransform: 'uppercase',
+    fontFamily: styles.fontFamily.firaSansThin,
   },
   uneditableLabel: {
     color: styles.colors.black.three,
@@ -29,6 +30,7 @@ export default EStylesheet.create({
     paddingHorizontal: styles.padding.p2,
     paddingTop: styles.padding.p1,
     fontWeight: styles.fontWeight.bold,
+    fontFamily: styles.fontFamily.firaSansSemiBold,
   },
   uneditableInput: {
     color: styles.colors.black.three,

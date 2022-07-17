@@ -23,6 +23,7 @@ export default EStylesheet.create({
     fontSize: styles.fontSize.lg,
     color: styles.colors.white.one,
     fontWeight: styles.fontWeight.bold,
+    fontFamily: styles.fontFamily.firaSansRegular,
   },
   secondaryButton: {
     ...baseButton,
@@ -34,6 +35,7 @@ export default EStylesheet.create({
     fontSize: styles.fontSize.lg,
     color: styles.colors.black.five,
     fontWeight: styles.fontWeight.bold,
+    fontFamily: styles.fontFamily.firaSansRegular,
   },
   textButton: {
     ...baseButton,
@@ -42,6 +44,7 @@ export default EStylesheet.create({
     fontSize: styles.fontSize.lg,
     color: styles.colors.black.five,
     fontWeight: styles.fontWeight.bold,
+    fontFamily: styles.fontFamily.firaSansRegular,
   },
   disabledButton: {
     ...baseButton,
@@ -53,5 +56,6 @@ export default EStylesheet.create({
     fontSize: styles.fontSize.lg,
     color: styles.colors.black.five,
     fontWeight: styles.fontWeight.bold,
+    fontFamily: styles.fontFamily.firaSansRegular,
   },
 });

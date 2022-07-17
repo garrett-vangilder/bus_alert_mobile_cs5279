@@ -19,7 +19,9 @@ export default EStylesheet.create({
   title: {
     fontWeight: styles.fontWeight.medium,
     fontSize: styles.fontSize['4xl'],
+    fontFamily: styles.fontFamily.firaSansBold,
     textAlign: 'center',
+    color: styles.colors.black.five,
   },
   flexOne: {
     flex: 1,

@@ -70,7 +70,7 @@ export default ({navigation}) => {
               renderItem={({item}) => {
                 return (
                   <View style={styles.routeItem}>
-                    <Text>{JSON.stringify(item)}</Text>
+                    <Text style={styles.text}>{JSON.stringify(item)}</Text>
                   </View>
                 );
               }}

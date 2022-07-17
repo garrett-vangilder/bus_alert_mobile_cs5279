@@ -28,5 +28,6 @@ export default EStylesheet.create({
   },
   text: {
     color: styles.colors.black.five,
+    fontFamily: styles.fontFamily.firaSansRegular,
   },
 });

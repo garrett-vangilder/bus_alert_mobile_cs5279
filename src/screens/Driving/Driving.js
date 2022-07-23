@@ -14,6 +14,7 @@ export default ({navigation}) => {
   const {shortCode, setShortCode} = useContext(ShortCodeContext);
   const [pingCount, setPingCount] = useState(0);
   const [responseLog, setResponseLog] = useState([]);
+  const [isFirstPing, setIsFirstPing] = useState(true);
 
   useEffect(() => {
     let isMounted = true;
@@ -26,7 +27,10 @@ export default ({navigation}) => {
           routeId: shortCode,
           latitude: location.coords.latitude,
           longitude: location.coords.longitude,
+          isFirstPing,
         });
+
+        setIsFirstPing(false);
         setResponseLog([...responseLog, JSON.stringify(resp)]);
       } catch (err) {
         setResponseLog([...responseLog, JSON.stringify(err.response.data)]);

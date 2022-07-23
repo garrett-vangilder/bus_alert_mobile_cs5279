@@ -120,10 +120,16 @@ function createAxiosInstance() {
 
 const api = createAxiosInstance();
 
-export const setLocation = async ({routeId, latitude, longitude}) => {
+export const setLocation = async ({
+  routeId,
+  latitude,
+  longitude,
+  isFirstPing,
+}) => {
   return api.post('gps', {
     routeId,
     latitude,
     longitude,
+    isFirstPing,
   });
 };

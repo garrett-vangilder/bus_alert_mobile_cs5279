@@ -38,11 +38,11 @@
 		</dict>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Please allow BusAlert to access your location data.</string>
+	<string>Please allow BusAlert to access your location data, we need your location to notify potential riders.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Please allow BusAlert to access your location data.</string>
+	<string>Please allow BusAlert to access your location data, we need your location to notify potential riders</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Please allow BusAlert to access your location data.s</string>
+	<string>Please allow BusAlert to access your location data, we need your location to notify potential riders</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
